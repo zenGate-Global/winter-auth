@@ -216,44 +216,7 @@ if (result.challenges) {
 			</Card.Root>
 		</div>
 
-		<!-- <h2>Response Format</h2>
-
-		<div class="my-6">
-			<CodeBlock 
-				language="typescript" 
-				code={`interface VerificationResult {
-  verified: boolean;
-  similarity: number; // 0-1 scale
-  similarityPercent: number; // 0-100 scale
-  confidence: number;
-  status: string;
-  
-  // Liveness detection results
-  livenessResult?: {
-    isLive: boolean;
-    confidence: number;
-    details?: {
-      spoofIndicators?: string[];
-      livenessScore?: number;
-    };
-  };
-  
-  // Challenge results
-  challenges?: Array<{
-    type: 'look_left' | 'look_right';
-    isSuccessful: boolean;
-    confidence: number;
-  }>;
-  
-  // Processing metadata
-  framesAnalyzed?: number;
-  processingTime?: number;
-  qualityIssues?: string[];
-  recommendations?: string[];
-}`} 
-			/>
-		</div> -->
-
+		
 		<h2>Best Practices</h2>
 
 		<ul class="space-y-2">

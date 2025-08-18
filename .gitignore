@@ -33,7 +33,7 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 # cursor
 .cursor 
 .cursorrules
-
+.claude
 # IntelliJ based IDEs
 .idea
 

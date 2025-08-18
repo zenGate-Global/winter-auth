@@ -16,7 +16,8 @@
       "WebFetch(domain:mdsvex.com)",
       "Bash(del:*)",
       "Bash(grep:*)",
-      "WebFetch(domain:semantic-release.gitbook.io)"
+      "WebFetch(domain:semantic-release.gitbook.io)",
+      "WebSearch"
     ],
     "deny": []
   }
