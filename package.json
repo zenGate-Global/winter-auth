@@ -8,13 +8,13 @@
     "registry": "https://registry.npmjs.org/"
   },
   "license": "MIT",
-  "homepage": "https://github.com/ZengateGlobal/winter-auth#readme",
+  "homepage": "https://github.com/zenGate-Global/winter-auth#readme",
   "bugs": {
-    "url": "https://github.com/ZengateGlobal/winter-auth/issues"
+    "url": "https://github.com/zenGate-Global/winter-auth/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZengateGlobal/winter-auth.git"
+    "url": "git+https://github.com/zenGate-Global/winter-auth.git"
   },
   "type": "module",
   "main": "./dist/index.js",
