@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd .. && bun install && bun run build && cd web && bun install && bun run build",
+  "installCommand": "cd .. && bun install && cd web && bun install",
+  "framework": "sveltekit"
+}
