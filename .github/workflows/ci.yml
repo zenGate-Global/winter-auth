@@ -40,25 +40,24 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          version: 10
+          bun-version: latest
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
         
       - name: Build
-        run: pnpm run build
+        run: bun run build
         
       - name: Test
-        run: pnpm run test
+        run: bun run test
         
       - name: Test Coverage
-        run: pnpm run test:coverage
+        run: bun run test:coverage
 
   node-compatibility:
     name: Node.js Compatibility
@@ -74,21 +73,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          version: 10
+          bun-version: latest
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
       - name: Build
-        run: pnpm run build
+        run: bun run build
       - name: Test
-        run: pnpm test
+        run: bun test
 
   bun-compatibility:
     name: Bun Compatibility
@@ -104,17 +102,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10
       - name: Use Bun ${{ matrix.bun-version }}
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: ${{ matrix.bun-version }}
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
       - name: Build
-        run: pnpm run build
+        run: bun run build
       - name: Test
-        run: pnpm test
+        run: bun test
