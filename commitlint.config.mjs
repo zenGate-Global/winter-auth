@@ -32,6 +32,7 @@ export default {
         'release',       // Release related changes
         'config'         // Configuration changes
       ]
-    ]
+    ],
+    'body-max-line-length': [0, 'always'] // Disable line length check for semantic-release
   }
 };
