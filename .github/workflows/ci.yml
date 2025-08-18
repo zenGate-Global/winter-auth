@@ -40,24 +40,21 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
       - uses: actions/setup-node@v4
         with:
           node-version: 22
 
       - name: Install dependencies
-        run: bun install --frozen-lockfile
+        run: npm ci
         
       - name: Build
-        run: bun run build
+        run: npm run build
         
       - name: Test
-        run: bun run test
+        run: npm run test
         
       - name: Test Coverage
-        run: bun run test:coverage
+        run: npm run test:coverage
 
   node-compatibility:
     name: Node.js Compatibility
@@ -73,20 +70,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: bun install --frozen-lockfile
+        run: npm ci
       - name: Build
-        run: bun run build
+        run: npm run build
       - name: Test
-        run: bun test
+        run: npm test
 
   bun-compatibility:
     name: Bun Compatibility
