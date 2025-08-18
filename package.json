@@ -1,6 +1,6 @@
 {
   "name": "@zengate/winter-auth",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Winter Protocol library for verifiable credentials",
   "author": "Zengate Global <developer@zengate.global>",
   "publishConfig": {
