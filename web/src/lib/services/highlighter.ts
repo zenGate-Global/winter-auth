@@ -35,9 +35,23 @@ class HighlighterService {
 
 	private async initialize(): Promise<Highlighter> {
 		try {
+			// Use dynamic imports to ensure proper bundling for production
 			const highlighter = await createHighlighter({
-				themes: ['github-light', 'github-dark'],
-				langs: ['typescript', 'javascript', 'json', 'bash', 'html', 'css', 'svelte', 'jsx', 'tsx']
+				themes: [
+					import('shiki/themes/github-light.mjs'),
+					import('shiki/themes/github-dark.mjs')
+				],
+				langs: [
+					import('shiki/langs/typescript.mjs'),
+					import('shiki/langs/javascript.mjs'),
+					import('shiki/langs/json.mjs'),
+					import('shiki/langs/bash.mjs'),
+					import('shiki/langs/html.mjs'),
+					import('shiki/langs/css.mjs'),
+					import('shiki/langs/svelte.mjs'),
+					import('shiki/langs/jsx.mjs'),
+					import('shiki/langs/tsx.mjs')
+				]
 			});
 			return highlighter;
 		} catch (error) {

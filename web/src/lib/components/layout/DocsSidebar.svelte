@@ -70,7 +70,7 @@
 						<SidebarMenuItem>
 							{#if group.collapsible && group.title === 'Modules'}
 								<Collapsible open={true}>
-									<CollapsibleTrigger >
+									<CollapsibleTrigger>
 										<SidebarMenuButton 
 											class="w-full text-chart-1 justify-between h-8 px-2 text-sm font-normal hover:bg-sidebar-accent/50"
 										>

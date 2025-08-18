@@ -24,19 +24,25 @@ onMount(async () => {
 	}
 
 	try {
-		// Use the singleton highlighter service
-		const highlighter = await highlighterService.getHighlighter();
-		
-		// Highlight the code with the detected theme
-		highlightedHtml = highlighter.codeToHtml(code, {
-			lang: language,
-			theme
-		});
+		// Only attempt highlighting in browser environment
+		if (browser) {
+			// Use the singleton highlighter service
+			const highlighter = await highlighterService.getHighlighter();
+			
+			// Highlight the code with the detected theme
+			highlightedHtml = highlighter.codeToHtml(code, {
+				lang: language,
+				theme
+			});
+		} else {
+			// SSR fallback - just show plain code
+			highlightedHtml = `<pre class="overflow-x-auto bg-muted text-muted-foreground p-8 rounded-md"><code>${code}</code></pre>`;
+		}
 		isLoading = false;
 	} catch (error) {
 		console.error('Failed to highlight code:', error);
 		// Fallback to plain text
-		highlightedHtml = `<pre><code>${code}</code></pre>`;
+		highlightedHtml = `<pre class="overflow-x-auto bg-muted text-muted-foreground p-8 rounded-md"><code>${code}</code></pre>`;
 		isLoading = false;
 	}
 });
@@ -44,7 +50,7 @@ onMount(async () => {
 
 {#if isLoading}
 	<!-- Show raw code while loading -->
-	<pre class="overflow-x-auto bg-muted text-muted-foreground p-4 rounded-md {className}"><code>{code}</code></pre>
+	<pre class="overflow-x-auto bg-muted text-muted-foreground p-8 rounded-md {className}"><code>{code}</code></pre>
 {:else if highlightedHtml}
 	<!-- Show highlighted code once ready -->
 	<div class="overflow-x-auto {className}">
@@ -52,5 +58,5 @@ onMount(async () => {
 	</div>
 {:else}
 	<!-- Fallback to raw code if highlighting fails -->
-	<pre class="overflow-x-auto bg-muted text-muted-foreground p-4 rounded-md {className}"><code>{code}</code></pre>
+	<pre class="overflow-x-auto bg-muted text-muted-foreground p-8 rounded-md {className}"><code>{code}</code></pre>
 {/if}
