@@ -149,7 +149,7 @@
 						<li><strong>Mint Main Handle:</strong> Purchase and mint your organization's main handle (e.g., <code>$mycompany</code>)</li>
 						<li><strong>Create Sub-handles:</strong> Mint individual sub-handles for each user (e.g., <code>$user@mycompany</code>)</li>
 						<li><strong>Verify Ownership:</strong> Ensure all handles appear in your connected wallet</li>
-						<li><strong>Admin Panel Setup:</strong> Connect the same wallet to the Winter Authenticator admin panel</li>
+						<li><strong>Admin Panel Setup:</strong> Connect the same wallet to your admin panel</li>
 						<li><strong>Handle Assignment:</strong> Map handles to user accounts within the admin interface</li>
 					</ol>
 				</Card.Content>

@@ -12,7 +12,7 @@
 	
 	<div class="prose max-w-none">
 		<p class="lead">
-			The Authorization module is the core of Winter Authenticator, providing enterprise-grade face verification capabilities with configurable security levels, liveness detection, and anti-spoofing measures.
+			The Authorization module is the core of Winter Auth, providing enterprise-grade face verification capabilities with configurable security levels, liveness detection, and anti-spoofing measures.
 		</p>
 
 		<h2>Security Levels</h2>
@@ -24,11 +24,11 @@
 				</Card.Header>
 				<Card.Content>
 					<div class="text-xs space-y-1">
-						<div>Basic matching</div>
-						<div>Faster processing</div>
-						<div>Higher false positives</div>
+						<li>Basic matching</li>
+						<li>Faster processing</li>
+						
 					</div>
-					<Badge variant="secondary" class="mt-2">Development</Badge>
+					<Badge variant="outline" class="mt-2">Development</Badge>
 				</Card.Content>
 			</Card.Root>
 			
@@ -38,9 +38,9 @@
 				</Card.Header>
 				<Card.Content>
 					<div class="text-xs space-y-1">
-						<div>Balanced accuracy</div>
-						<div>Good performance</div>
-						<div>Recommended default</div>
+						<li>Balanced accuracy</li>
+						<li>Good performance</li>
+						<li>Recommended default</li>
 					</div>
 					<Badge variant="default" class="mt-2">Recommended</Badge>
 				</Card.Content>
@@ -52,9 +52,9 @@
 				</Card.Header>
 				<Card.Content>
 					<div class="text-xs space-y-1">
-						<div>High accuracy</div>
-						<div>Lower false positives</div>
-						<div>Stricter matching</div>
+						<li>High accuracy</li>
+						<li>Lower false positives</li>
+						<li>Stricter matching</li>
 					</div>
 					<Badge variant="default" class="mt-2">Production</Badge>
 				</Card.Content>
@@ -66,9 +66,9 @@
 				</Card.Header>
 				<Card.Content>
 					<div class="text-xs space-y-1">
-						<div>Maximum security</div>
-						<div>Minimal false positives</div>
-						<div>May reject valid matches</div>
+						<li>Maximum security</li>
+						<li>Minimal false positives</li>
+						
 					</div>
 					<Badge variant="destructive" class="mt-2">Critical Systems</Badge>
 				</Card.Content>
@@ -216,7 +216,7 @@ if (result.challenges) {
 			</Card.Root>
 		</div>
 
-		<h2>Response Format</h2>
+		<!-- <h2>Response Format</h2>
 
 		<div class="my-6">
 			<CodeBlock 
@@ -252,7 +252,7 @@ if (result.challenges) {
   recommendations?: string[];
 }`} 
 			/>
-		</div>
+		</div> -->
 
 		<h2>Best Practices</h2>
 
@@ -262,7 +262,7 @@ if (result.challenges) {
 			<li><strong>Liveness Detection:</strong> Enable for any user-facing verification</li>
 			<li><strong>Challenge System:</strong> Use for high-security scenarios or suspicious activity</li>
 			<li><strong>Error Handling:</strong> Implement proper fallback mechanisms for failed verifications</li>
-			<li><strong>Performance:</strong> Reuse Winter Authenticator instances to avoid initialization overhead</li>
+			<li><strong>Performance:</strong> Reuse Winter Auth instances to avoid initialization overhead</li>
 		</ul>
 	</div>
 </DocPage>

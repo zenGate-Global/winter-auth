@@ -1,7 +1,7 @@
 <script lang="ts">
 import { onMount } from 'svelte';
-import { createHighlighter, type Highlighter } from 'shiki';
 import { browser } from '$app/environment';
+import { highlighterService } from '$lib/services/highlighter';
 
 	interface Props {
 		code: string;
@@ -13,48 +13,44 @@ import { browser } from '$app/environment';
 	
 
 let highlightedHtml = $state('');
-let highlighter: Highlighter | null = null;
+let isLoading = $state(true);
 
 // Detect theme (SvelteKit app uses 'dark' class on <html> for dark mode)
-let theme = 'github-light';
-if (browser && typeof document !== 'undefined') {
-  theme = document.documentElement.classList.contains('dark') ? 'github-dark' : 'github-light';
-}
+let theme = $state('github-light');
 
 onMount(async () => {
+	if (browser && typeof document !== 'undefined') {
+		theme = document.documentElement.classList.contains('dark') ? 'github-dark' : 'github-light';
+	}
+
 	try {
-		highlighter = await createHighlighter({
-			themes: ['github-light', 'github-dark'],
-			langs: ['typescript', 'javascript', 'json', 'bash', 'html', 'css', 'svelte']
-		});
+		// Use the singleton highlighter service
+		const highlighter = await highlighterService.getHighlighter();
+		
 		// Highlight the code with the detected theme
 		highlightedHtml = highlighter.codeToHtml(code, {
 			lang: language,
-			theme,
-			colorReplacements: {
-				'#24292f': 'hsl(var(--foreground))',
-				'#f6f8fa': 'hsl(var(--muted))',
-				'#0969da': 'hsl(var(--primary))',
-				'#953800': 'hsl(var(--destructive))',
-				'#0550ae': 'hsl(var(--blue))',
-				'#116329': 'hsl(var(--green))',
-				'#a40e26': 'hsl(var(--red))',
-				'#633c01': 'hsl(var(--yellow))',
-				'#8250df': 'hsl(var(--purple))'
-			}
+			theme
 		});
+		isLoading = false;
 	} catch (error) {
-		console.error('Failed to initialize syntax highlighter:', error);
+		console.error('Failed to highlight code:', error);
 		// Fallback to plain text
 		highlightedHtml = `<pre><code>${code}</code></pre>`;
+		isLoading = false;
 	}
 });
 </script>
 
-{#if highlightedHtml}
+{#if isLoading}
+	<!-- Show raw code while loading -->
+	<pre class="overflow-x-auto bg-muted text-muted-foreground p-4 rounded-md {className}"><code>{code}</code></pre>
+{:else if highlightedHtml}
+	<!-- Show highlighted code once ready -->
 	<div class="overflow-x-auto {className}">
 		{@html highlightedHtml}
 	</div>
 {:else}
+	<!-- Fallback to raw code if highlighting fails -->
 	<pre class="overflow-x-auto bg-muted text-muted-foreground p-4 rounded-md {className}"><code>{code}</code></pre>
 {/if}

@@ -9,8 +9,8 @@
 	import CodeBlock from '$lib/components/ui/code-block.svelte';
 </script>
 
-<DocPage title="Installation" description="How to install and set up Winter Authenticator">
-	<p>Get started with Winter Authenticator in your project.</p>
+<DocPage title="Getting Started" description="How to install and set up Winter Auth">
+	<p>Winter Auth is a framework agnostic library, which means you can install it in any JavaScript or TypeScript project.</p>
 
 	<h2>Package Installation</h2>
 	
@@ -44,7 +44,7 @@
 	<div class="space-y-2 my-4">
 		<div class="flex items-center gap-2">
 			<CheckCircle class="h-4 w-4 text-green-500" />
-			<span>Node.js 16+ or modern browser environment</span>
+			<span>Node.js 20+ </span>
 		</div>
 		<div class="flex items-center gap-2">
 			<CheckCircle class="h-4 w-4 text-green-500" />
@@ -52,7 +52,7 @@
 		</div>
 		<div class="flex items-center gap-2">
 			<CheckCircle class="h-4 w-4 text-green-500" />
-			<span>Valid AWS credentials for face recognition services</span>
+			<span>Valid credentials for face recognition selected provider</span>
 		</div>
 	</div>
 

@@ -7,11 +7,11 @@
 	import { ShieldCheck, Zap, Users, Settings, Upload, Eye, CheckCircle, Coins } from '@lucide/svelte';
 </script>
 
-<DocPage title="Introduction to Winter Authenticator" description="Enterprise-grade biometric face verification for secure identity authentication">
+<DocPage title="Welcome to Winter Auth" description="Verifiable Credentials security layer">
 	
 	<div class="prose max-w-none">
 		<p class="lead">
-			Winter Authenticator is a comprehensive, enterprise-grade biometric face verification library that provides secure authentication through facial recognition technology. Built with TypeScript and designed for modern web and mobile applications, it offers a robust provider system supporting multiple cloud services.
+			Winter Auth is a TypeScript library that provides a framework‑agnostic security layer for implementing verifiable credentials using the DID method of your choice.
 		</p>
 
 		<h2>Core Capabilities</h2>
@@ -25,7 +25,7 @@
 					</Card.Title>
 				</Card.Header>
 				<Card.Content>
-					<p class="text-sm text-muted-foreground">Currently supports AWS Rekognition with a flexible architecture that allows new providers to be added as needed</p>
+					<p class="text-sm text-muted-foreground">Currently supports AWS Rekognition with a flexible architecture that allows new biometric providers to be added as needed</p>
 				</Card.Content>
 			</Card.Root>
 			
@@ -56,85 +56,59 @@
 
 		<h2>Three Core Modules</h2>
 		
-		<div class="space-y-4">
-			<Card.Root>
-				<Card.Header>
-					<Card.Title class="flex items-center gap-2">
-						<ShieldCheck class="h-5 w-5 text-blue-600" />
-						Authorization Module
-					</Card.Title>
-					<Card.Description>Face verification and biometric authentication</Card.Description>
-				</Card.Header>
-				<Card.Content>
-					<p>Provides comprehensive face comparison methods including image-to-image comparison, live video verification with liveness detection, and image quality assessment for optimal results.</p>
-				</Card.Content>
-			</Card.Root>
-			
-			<Card.Root>
-				<Card.Header>
-					<Card.Title class="flex items-center gap-2">
-						<Upload class="h-5 w-5 text-green-600" />
-						Metadata Extraction Module
-					</Card.Title>
-					<Card.Description>Extract and analyze image metadata</Card.Description>
-				</Card.Header>
-				<Card.Content>
-					<p>Extract EXIF data, GPS coordinates, camera information, and timestamps from images. Includes optimized methods for specific data extraction and validation.</p>
-				</Card.Content>
-			</Card.Root>
-			
-			<Card.Root>
-				<Card.Header>
-					<Card.Title class="flex items-center gap-2">
-						<Settings class="h-5 w-5 text-purple-600" />
-						Credential Issuing Module (Handle.me)
-					</Card.Title>
-					<Card.Description>
-						<Badge variant="secondary">Coming Soon</Badge>
-					</Card.Description>
-				</Card.Header>
-				<Card.Content>
-					<p>Future module for issuing and managing verifiable credentials after successful biometric authentication. Will integrate with decentralized identity systems.</p>
-				</Card.Content>
-			</Card.Root>
-		</div>
+<section class="space-y-12">
+  <div class="grid gap-8 md:grid-cols-1">
+    <div class="flex flex-col space-y-3">
+      <div class="flex items-center gap-2">
+        <ShieldCheck class="h-8 w-8 text-blue-600" />
+        <h3 class="text-xl font-semibold">Authorization Module</h3>
+      </div>
+      <p class="text-muted-foreground">
+        Face verification and biometric authentication with image-to-image
+        comparison, live video verification (with liveness detection), and image
+        quality assessment for optimal results.
+      </p>
+    </div>
+
+    <div class="flex flex-col space-y-3">
+      <div class="flex items-center gap-2">
+        <Upload class="h-8 w-8 text-green-600" />
+        <h3 class="text-xl font-semibold">Metadata Extraction Module</h3>
+      </div>
+      <p class="text-muted-foreground">
+        Extract EXIF data, GPS coordinates, camera information, and timestamps
+        from images. Includes optimized methods for targeted data extraction and
+        validation.
+      </p>
+    </div>
+
+    <div class="flex flex-col space-y-3">
+      <div class="flex items-center gap-2">
+        <Settings class="h-8 w-8 text-purple-600" />
+        <h3 class="text-xl font-semibold flex items-center gap-2">
+          Credential Issuing Module
+          <span class="rounded-full bg-primary px-2 py-0.5 text-xs">Coming Soon</span>
+        </h3>
+      </div>
+      <p class="text-muted-foreground">
+        Issue and manage verifiable credentials after successful biometric
+        authentication. Designed to integrate seamlessly with decentralized
+        identity systems.
+      </p>
+    </div>
+  </div>
+</section>
 
 		<h2>Winter Protocol Integration</h2>
-		
-		<p>Winter Authenticator integrates with Winter Protocol, a blockchain-based traceability system that ensures biometric verification before data is permanently recorded on-chain.</p>
 
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6 not-prose">
-			<Card.Root>
-				<Card.Header>
-					<Card.Title class="flex items-center gap-2">
-						<ShieldCheck class="h-5 w-5 text-green-600" />
-						Biometric Verification
-					</Card.Title>
-				</Card.Header>
-				<Card.Content>
-					<p class="text-sm text-gray-600">Face verification ensures only authorized personnel can create immutable blockchain records</p>
-				</Card.Content>
-			</Card.Root>
-			
-			<Card.Root>
-				<Card.Header>
-					<Card.Title class="flex items-center gap-2">
-						<Coins class="h-5 w-5 text-purple-600" />
-						Winter Protocol Traceability
-					</Card.Title>
-				</Card.Header>
-				<Card.Content>
-					<p class="text-sm text-gray-600">Verified identity data enables secure traceability records in Winter Protocol's blockchain system</p>
-				</Card.Content>
-			</Card.Root>
-		</div>
+		<p>Winter Auth is designed to be used with Winter Protocol, a blockchain-based traceability system, but it can be implemented in any environment that requires secure and verifiable identity management.</p>
 
 		<h3>Integration Points</h3>
 		
 		<ul class="space-y-2">
 			<li><strong>GPS Information:</strong> Collects location metadata for uploaded records</li>
 			<li><strong>Database Storage:</strong> Admin uploads reference images for user comparison</li>
-			<li><strong>Facial Verification:</strong> Uses Winter Authenticator to verify identity before blockchain minting</li>
+			<li><strong>Facial Verification:</strong> Winter Auth can be used to verify identity before blockchain data submission</li>
 			<li><strong>Immutable Records:</strong> Successfully verified records become permanent blockchain assets</li>
 		</ul>
 

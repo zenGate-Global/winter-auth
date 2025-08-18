@@ -40,9 +40,13 @@ export const docsNavigation: NavGroup[] = [
 				title: "Authorization",
 				category: true,
 				items: [
-										{
+					{
 						title: "Introduction",
 						href: "/docs/modules/authorization/introduction"
+					},
+					{
+						title: "Setup",
+						href: "/docs/modules/authorization/setup"
 					},
 					{
 						title: "Methods",

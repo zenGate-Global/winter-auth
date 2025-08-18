@@ -41,7 +41,7 @@
 			<BookOpen class="h-5 w-5" />
 		</div>
 		<div class="flex flex-col">
-			<span class="text-base font-semibold">wAuth</span>
+			<span class="text-base font-semibold">Winter Auth</span>
 			<span class="text-sm text-muted-foreground">Documentation</span>
 		</div>
 	</div>
@@ -70,42 +70,42 @@
 						<SidebarMenuItem>
 							{#if group.collapsible && group.title === 'Modules'}
 								<Collapsible open={true}>
-									<CollapsibleTrigger asChild>
+									<CollapsibleTrigger >
 										<SidebarMenuButton 
-											class="w-full justify-between h-8 px-2 text-sm font-normal hover:bg-sidebar-accent/50"
+											class="w-full text-chart-1 justify-between h-8 px-2 text-sm font-normal hover:bg-sidebar-accent/50"
 										>
-											<div class="flex items-center">
+											<div class="flex items-center min-w-0">
 												{#if item.title === 'Authorization'}
-													<Shield class="h-3 w-3 mr-2 opacity-60" />
+													<Shield class="h-3 w-3 mr-2 opacity-60 flex-shrink-0" />
 												{:else if item.title === 'Metadata Extractor'}
-													<Database class="h-3 w-3 mr-2 opacity-60" />
+													<Database class="h-3 w-3 mr-2 opacity-60 flex-shrink-0" />
 												{:else}
-													<BookOpen class="h-3 w-3 mr-2 opacity-60" />
+													<BookOpen class="h-3 w-3 mr-2 opacity-60 flex-shrink-0" />
 												{/if}
-												<span class="text-sm">{item.title}</span>
+												<span class="text-sm truncate">{item.title}</span>
 											</div>
 											<ChevronDown class="h-3 w-3 transition-transform duration-200 group-data-[state=closed]:rotate-180" />
 										</SidebarMenuButton>
 									</CollapsibleTrigger>
 									<CollapsibleContent>
-										<SidebarMenu class="ml-4 space-y-1">
+										<SidebarMenu class="ml-4 space-y-1 text-muted-foreground">
 											{#each item.items as subItem}
 												<SidebarMenuItem>
 													{#if subItem.category}
-														<div class="text-xs text-muted-foreground font-medium px-2 py-1 mb-1">
-															<div class="flex items-center">
+														<div class="text-xs text-black dark:text-white font-medium px-2 py-1 mb-1">
+															<div class="flex items-center min-w-0">
 																{#if subItem.title === 'Introduction'}
-																	<Info class="h-3 w-3 mr-1.5 opacity-60" />
+																	<Info class="h-3 w-3 mr-1.5 opacity-60 flex-shrink-0" />
 																{:else if subItem.title === 'Usage'}
-																	<Code class="h-3 w-3 mr-1.5 opacity-60" />
+																	<Code class="h-3 w-3 mr-1.5 opacity-60 flex-shrink-0" />
 																{:else if subItem.title === 'Providers'}
-																	<Globe class="h-3 w-3 mr-1.5 opacity-60" />
+																	<Globe class="h-3 w-3 mr-1.5 opacity-60 flex-shrink-0" />
 																{:else if subItem.title === 'Edge Cases'}
-																	<Settings class="h-3 w-3 mr-1.5 opacity-60" />
+																	<Settings class="h-3 w-3 mr-1.5 opacity-60 flex-shrink-0" />
 																{:else}
-																	<BookOpen class="h-3 w-3 mr-1.5 opacity-60" />
+																	<BookOpen class="h-3 w-3 mr-1.5 opacity-60 flex-shrink-0" />
 																{/if}
-																{subItem.title}
+																<span class="truncate">{subItem.title}</span>
 															</div>
 														</div>
 														{#if subItem.items}
@@ -117,13 +117,13 @@
 																			isActive={currentPath === subSubItem.href}
 																			class="w-full  justify-start h-8 px-2 text-sm font-normal hover:bg-sidebar-accent/50 data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground"
 																		>
-																			<a href={subSubItem.href} class="flex items-center w-full">
+																			<a href={subSubItem.href} class="flex items-center w-full min-w-0">
 																				{#if subSubItem.title.endsWith('()')}
-																					<Play class="h-3 w-3 mr-2 opacity-60" />
+																					<Play class="h-3 w-3 mr-2 opacity-60 flex-shrink-0" />
 																				{:else}
-																					<FileText class="h-3 w-3 mr-2 opacity-60" />
+																					<FileText class="h-3 w-3 mr-2 opacity-60 flex-shrink-0" />
 																				{/if}
-																				<span class="text-sm">{subSubItem.title}</span>
+																				<span class="text-sm truncate">{subSubItem.title}</span>
 																			</a>
 																		</SidebarMenuButton>
 																	</SidebarMenuItem>
@@ -132,19 +132,19 @@
 														{/if}
 													{:else if subItem.href}
 														<SidebarMenuButton 
-															asChild 
+															 
 															isActive={currentPath === subItem.href}
 															class="w-full justify-start  h-8 px-2 text-sm font-normal hover:bg-sidebar-accent/50 data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground"
 														>
-															<a href={subItem.href} class="flex items-center w-full">
+															<a href={subItem.href} class="flex items-center w-full text-muted-foreground min-w-0">
 																{#if subItem.title === 'Introduction'}
-																	<Info class="h-3 w-3 mr-2 opacity-60" />
+																	<Info class="h-3 w-3 mr-2 opacity-60 flex-shrink-0" />
 																{:else if subItem.title === 'Edge Cases'}
-																	<Settings class="h-3 w-3 mr-2 opacity-60" />
+																	<Settings class="h-3 w-3 mr-2 opacity-60 flex-shrink-0" />
 																{:else}
-																	<BookOpen class="h-3 w-3 mr-2 opacity-60" />
+																	<BookOpen class="h-3 w-3 mr-2 opacity-60 flex-shrink-0" />
 																{/if}
-																<span class="text-sm">{subItem.title}</span>
+																<span class="text-sm truncate">{subItem.title}</span>
 															</a>
 														</SidebarMenuButton>
 													{/if}
@@ -155,29 +155,29 @@
 								</Collapsible>
 							{:else}
 								<SidebarMenuButton 
-									asChild 
+							
 									isActive={currentPath === item.href}
-									class="w-full justify-start h-8 px-2 text-sm font-normal hover:bg-sidebar-accent/50 data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground"
+									class="w-full justify-start h-8 text-muted-foreground px-2 text-sm font-normal hover:bg-sidebar-accent/50 data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground"
 								>
-									<a href={item.href} class="flex items-center justify-between w-full">
-										<div class="flex items-center">
+									<a href={item.href} class="flex items-center justify-between w-full min-w-0">
+										<div class="flex items-center min-w-0 flex-1">
 											{#if item.title === 'Introduction'}
-												<Info class="h-3 w-3 mr-2 opacity-60" />
+												<Info class="h-3 w-3 mr-2 opacity-60 flex-shrink-0" />
 											{:else if item.title === 'Installation'}
-												<Download class="h-3 w-3 mr-2 opacity-60" />
+												<Download class="h-3 w-3 mr-2 opacity-60 flex-shrink-0" />
 											{:else if item.title === 'Changelog'}
-												<FileText class="h-3 w-3 mr-2 opacity-60" />
+												<FileText class="h-3 w-3 mr-2 opacity-60 flex-shrink-0" />
 											{:else if item.title === 'Types'}
-												<FileText class="h-3 w-3 mr-2 opacity-60" />
+												<FileText class="h-3 w-3 mr-2 opacity-60 flex-shrink-0" />
 											{:else if item.title === 'Utils'}
-												<Wrench class="h-3 w-3 mr-2 opacity-60" />
+												<Wrench class="h-3 w-3 mr-2 opacity-60 flex-shrink-0" />
 											{:else}
-												<BookOpen class="h-3 w-3 mr-2 opacity-60" />
+												<BookOpen class="h-3 w-3 mr-2 opacity-60 flex-shrink-0" />
 											{/if}
-											<span class="text-sm">{item.title}</span>
+											<span class="text-sm truncate">{item.title}</span>
 										</div>
 										{#if item.disabled}
-											<Badge variant="secondary" class="text-xs">Soon</Badge>
+											<Badge variant="secondary" class="text-xs flex-shrink-0">Soon</Badge>
 										{/if}
 									</a>
 								</SidebarMenuButton>
@@ -196,7 +196,7 @@
 			<Badge variant="outline" class="text-xs">zenGate Global</Badge>
 		</div>
 		<a 
-			href="https://github.com/zengate/winter-authenticator" 
+			href="https://github.com/zenGate-Global/winter-auth" 
 			class="flex items-center space-x-1 text-xs text-muted-foreground hover:text-primary transition-colors"
 			target="_blank"
 			rel="noopener noreferrer"
