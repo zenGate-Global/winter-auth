@@ -67,69 +67,9 @@ WAUTH_AWS_REGION=us-east-1 (optional, defaults to us-east-1)
 
 ---
 
-### Azure Face API
+### Other Providers (Coming Soon)
 
-**Best for**: Enterprise environments already using Microsoft Azure
-
-#### Step 1: Create Azure Account
-1. Go to https://azure.microsoft.com/
-2. Click **"Start free"** 
-3. Get $200 in free credits
-
-#### Step 2: Create Face API Resource
-1. Go to https://portal.azure.com/
-2. Click **"Create a resource"**
-3. Search for **"Face"**
-4. Click **"Create"**
-5. Fill in:
-   - **Subscription**: Your subscription
-   - **Resource group**: Create new or use existing
-   - **Region**: Choose nearest region
-   - **Name**: `winter-authenticator-face`
-   - **Pricing tier**: F0 (Free) or S0 (Standard)
-
-#### Step 3: Get API Keys
-1. Go to your Face API resource
-2. Click **"Keys and Endpoint"** in left sidebar
-3. Copy **Key 1** and **Endpoint**
-
-#### Step 4: Set Environment Variables
-```bash
-WAUTH_PROVIDER=azure
-WAUTH_API_KEY=your_key_here
-WAUTH_ENDPOINT=https://your-resource.cognitiveservices.azure.com/
-```
-
-#### 💰 Azure Pricing
-- **Free Tier**: 30,000 transactions per month
-- **Paid**: $1 per 1,000 transactions (0-1M), then tiered pricing
-
----
-
-### Kairos Face Recognition
-
-**Best for**: Privacy-focused applications, ethical AI requirements
-
-#### Step 1: Create Kairos Account
-1. Go to https://kairos.com/
-2. Click **"Get Started"**
-3. Sign up for developer account
-
-#### Step 2: Create Application
-1. Go to Kairos developer dashboard
-2. Click **"Create New App"**
-3. Get your **App ID** and **API Key**
-
-#### Step 3: Set Environment Variables
-```bash
-WAUTH_PROVIDER=kairos
-WAUTH_API_KEY=your_api_key_here
-WAUTH_APP_ID=your_app_id_here
-```
-
-#### 💰 Kairos Pricing
-- **Free**: Limited transactions
-- **Paid**: Various tiers starting from $19/month
+Additional providers like Azure Face API, Google Vision, and Kairos are planned for future releases. The architecture is designed to easily support multiple providers through the same interface.
 
 ---
 
@@ -174,8 +114,9 @@ const liveResult = await wauth.compareByLiveVideo(referenceImage, videoElement);
 | Provider | Status | Best For | Free Tier |
 |----------|--------|----------|-----------|
 | AWS Rekognition | ✅ Ready | Production, accuracy | 5,000 calls/month |
-| Azure Face API | 🔄 Coming Soon | Enterprise | 30,000 calls/month |
-| Kairos | 🔄 Coming Soon | Privacy-focused | Limited |
+| Azure Face API | 🔜 Coming Soon | Enterprise | 30,000 calls/month |
+| Google Vision | 🔜 Coming Soon | Google Cloud users | 1,000 calls/month |
+| Kairos | 🔜 Coming Soon | Privacy-focused | Limited |
 
 ## 🛠️ Adding New Providers
 
