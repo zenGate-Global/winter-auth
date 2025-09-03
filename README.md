@@ -10,10 +10,15 @@ TypeScript library for biometric authentication and image metadata extraction fo
 
 ```bash
 # Development
-npm run build:watch
+npm run dev
 
 # Development for Documentation
+# Needs to have the library builded locally, for that you can use
+
+npm run build:watch
+
 npm run dev:web
+
 
 ```
 
